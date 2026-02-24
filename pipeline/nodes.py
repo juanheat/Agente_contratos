@@ -119,7 +119,7 @@ def nodo_extractor(state: dict, agents: dict) -> dict:
         {"role": "assistant", "content": json.dumps(structured)}
     )
 
-    logger.debug("🟢 [Extractor] Resultado: %s", structured)
+    logger.info("🟢 [Extractor] Resultado: %s", structured)
 
     return {
         "extracted_data": structured,
