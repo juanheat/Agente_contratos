@@ -10,8 +10,8 @@ from functools import partial
 
 from langgraph.graph import END, START, StateGraph
 
-from pipeline.nodes import nodo_clasificador, nodo_extractor, nodo_validador
-from pipeline.state import StateEstructure
+from pipeline_ai.nodes import nodo_clasificador, nodo_extractor, nodo_validador
+from pipeline_ai.state import StateEstructure
 
 logger = logging.getLogger(__name__)
 

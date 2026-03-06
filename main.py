@@ -1,5 +1,5 @@
-from pipeline import run_pipeline
-from utils.pdf_utils import file_to_base64
+from pipeline_ai import run_pipeline
+from utils.pdf_utils import file_to_base64, extraer_paginas
 import logging
 import sys
 # pip install google-cloud-aiplatform langchain-google-vertexai langchain
@@ -31,10 +31,13 @@ for noisy in ["httpx", "google", "grpc", "urllib3", "absl"]:
 
 pdf = file_to_base64("contratos\CW2370068.pdf")
 
+pdf = extraer_paginas(pdf, num_paginas=3, filename="CW2370068.pdf")
+
 r = run_pipeline(pdf_base64= pdf,
-                 max_attempts= 2,
-                 llm_kwargs= {"model": "gemini-2.5-flash",
-                 "project": "gcp-sura-auditoria-eps",
-                 "temperature": 0,
-                 "max_tokens": 4300,
-                 "thinking_budget": 0,})
+                max_attempts= 2,
+                llm_kwargs= {"model": "gemini-2.5-flash",
+                "project": "gcp-sura-auditoria-eps",
+                "temperature": 0,
+                "max_tokens": 4300,
+                "thinking_budget": 0,})
+

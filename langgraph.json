@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "sdsds": "./pipeline/graph.py:build_graph"
+   },
+  "env": ".env"
+}
+ 
